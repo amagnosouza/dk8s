@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: strigusgirus
+  name: strigusgirus
+spec:
+  containers:
+  - image: nginx
+    name: strigusgirus
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
