@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deployment
+    fruta: laranja
+  name: nginx-deployment
+  namespace: day03
+spec:
+  replicas: 15
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  strategy: {} # rolling update is the default strategy, so we can leave it empty
+  template:
+    metadata:
+      labels:
+        app: nginx-deployment
+    spec:
+      containers:
+      - image: nginx:1.17.0
+        name: nginx-fruta
+        resources:
+          requests:
+            cpu: "0.3"
+            memory: 64Mi
+          limits:
+            cpu: "0.5"
+            memory: 256Mi
+    
